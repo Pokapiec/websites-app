@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+
+<h1>Website details</h1>
+
+<div class="card">
+    <p>{{website.url}}</p>
+    <p>{{website.title}}</p>
+    <p>{{website.meta_description}}</p>
+    <p>{{website.alexa_rank}}</p>
+    <p>{{website.category}}</p>
+    <p>{{website.date_added}}</p>
+    <p>{{website.date_updated}}</p>
+</div>
+
+{% endblock %}

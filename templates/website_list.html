@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+
+<h1>Websites list</h1>
+
+<div class="container">
+{% for website in websites %}
+    <div class="card">
+        <a href="{% url 'website-detail' website.id %}"><p class="card-title">{{ website.title}}</p></a>
+        <a href="{% url 'website-list' %}?orderby=-url"><p>{{ website.url }}</p></a>
+        <p>{{ website.meta_description }}</p>
+        <p>{{ website.alexa_rank }}</p>
+        <p>{{ website.category }}</p>
+        <p>{{ website.date_added }}</p>
+        <p>{{ website.date_updated }}</p>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}
