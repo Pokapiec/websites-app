@@ -11,7 +11,6 @@ def load_alexa_rank():
     data = requests.get('http://s3.amazonaws.com/alexa-static/top-1m.csv.zip')
     zf = zipfile.ZipFile(data)
 
-    rows = []
     for file in zf.filelist:
         csv_data = zf.read(file)
         for row in csv.reader(csv_data):

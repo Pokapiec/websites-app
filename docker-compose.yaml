@@ -15,8 +15,6 @@ services:
  
     env_file:
       - ./.env.dev
-    depends_on:
-      - db
   redis:
     image: redis:alpine
   celery:
@@ -29,8 +27,5 @@ services:
     env_file:
       - ./.env.dev
     depends_on:
-      - db
       - redis
       - app
-volumes:
-  pgdata:

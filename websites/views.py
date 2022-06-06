@@ -1,6 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .models import Website, WebsiteCategory
+
+from .celery_tasks import load_alexa_rank
+
+def upload_alexa_rank(request):
+    load_alexa_rank.delay()
+    return redirect('website-list')
 
 class WebsiteListView(ListView):
     paginate_by = 25
